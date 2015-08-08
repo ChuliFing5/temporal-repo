@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>proy-grado</groupId>
+	<artifactId>daemon-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>daemon-app</name>
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+
+		<!-- Versions -->
+		<jetty.version>9.3.1.v20150714</jetty.version>
+		<spring.version>4.2.0.RELEASE</spring.version>
+		<activemq.version>5.9.0</activemq.version>
+		<log4j.version>1.2.17</log4j.version>
+		<jackson.version>1.9.13</jackson.version>
+		<javax.servlet.version>3.1.0</javax.servlet.version>
+
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
+	<dependencies>
+
+		<!-- Jetty -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+
+		<!-- Spring Dependecnes -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet.version}</version>
+		</dependency>
+
+		<!-- Jackson -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.codehaus.jackson</groupId> -->
+		<!-- <artifactId>jackson-mapper-asl</artifactId> -->
+		<!-- <version>${jackson.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.codehaus.jackson</groupId> -->
+		<!-- <artifactId>jackson-core-asl</artifactId> -->
+		<!-- <version>${jackson.version}</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+
+
+
+
+		<!-- ActiveMQ Artifacts -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+			<version>${activemq.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+</project>
