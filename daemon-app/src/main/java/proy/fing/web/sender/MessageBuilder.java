@@ -1,29 +1,34 @@
 package proy.fing.web.sender;
 
-import java.io.Serializable;
-
 import javax.jms.JMSException;
 import javax.jms.Message;
-import javax.jms.ObjectMessage;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 
 import org.springframework.jms.core.MessageCreator;
 
+import com.google.gson.Gson;
+
 public class MessageBuilder implements MessageCreator{
 	
-	private Object object;
+	private String message;
+	private Gson converter;
 
 	@Override
 	public Message createMessage(Session session) throws JMSException {
 		
-		ObjectMessage objectMessage = session.createObjectMessage();
-		objectMessage.setObject((Serializable) object);
-		return objectMessage;
+		TextMessage textMessage = session.createTextMessage();
+		textMessage.setText(message);
+		return textMessage;
 		
 	}
 	
 	public void setObjectToSend(Object object){
-		this.object = object;
+		this.message = this.converter.toJson(object);
+	}
+	
+	public void setConverter(Gson converter){
+		this.converter = converter;
 	}
 
 }

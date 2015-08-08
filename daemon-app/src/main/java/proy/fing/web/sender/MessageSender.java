@@ -2,6 +2,8 @@ package proy.fing.web.sender;
 
 import org.springframework.jms.core.JmsTemplate;
 
+import com.google.gson.Gson;
+
 
 public class MessageSender {
 	
@@ -10,8 +12,8 @@ public class MessageSender {
 	public void send(Object message){
 		
 		MessageBuilder messageBuilder = new MessageBuilder();
+		messageBuilder.setConverter(new Gson());
 		messageBuilder.setObjectToSend(message);
-		
 		this.jmsTemplate.send(messageBuilder);
 		
 	}

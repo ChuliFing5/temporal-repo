@@ -94,17 +94,6 @@
 		</dependency>
 
 		<!-- Jackson -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.codehaus.jackson</groupId> -->
-		<!-- <artifactId>jackson-mapper-asl</artifactId> -->
-		<!-- <version>${jackson.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.codehaus.jackson</groupId> -->
-		<!-- <artifactId>jackson-core-asl</artifactId> -->
-		<!-- <version>${jackson.version}</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -116,10 +105,6 @@
 			<version>2.6.0</version>
 		</dependency>
 
-
-
-
-
 		<!-- ActiveMQ Artifacts -->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
@@ -127,11 +112,20 @@
 			<version>${activemq.version}</version>
 		</dependency>
 
+		<!-- Log4j Dependenciy -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+
+		<!-- Gson Dependency -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
 
 
 	</dependencies>
