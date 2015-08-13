@@ -1,4 +1,4 @@
-package proy.fing.core.model.mongo;
+package proy.fing.core.model;
 
 import java.math.BigDecimal;
 

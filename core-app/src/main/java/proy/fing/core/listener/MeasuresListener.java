@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 
 import proy.fing.core.dao.mongo.MeasureDAO;
 import proy.fing.core.dto.measures.MeasureDTO;
-import proy.fing.core.model.mongo.Measure;
+import proy.fing.core.model.Measure;
 
 @Service
 public class MeasuresListener {

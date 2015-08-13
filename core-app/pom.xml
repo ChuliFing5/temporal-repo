@@ -16,10 +16,11 @@
 		<!-- Versions -->
 		<jetty.version>9.3.1.v20150714</jetty.version>
 		<spring.version>4.2.0.RELEASE</spring.version>
-		<spring.data.version>1.7.2.RELEASE</spring.data.version>
+		<spring.data.mongo.version>1.7.2.RELEASE</spring.data.mongo.version>
+		<spring.data.jpa.version>1.7.2.RELEASE</spring.data.jpa.version>
 		<activemq.version>5.9.0</activemq.version>
 		<log4j.version>1.2.17</log4j.version>
-		
+
 	</properties>
 
 	<build>
@@ -87,7 +88,33 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
-			<version>${spring.data.version}</version>
+			<version>${spring.data.mongo.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.jpa.version}</version>
+		</dependency>
+
+		<!-- Database (H2) -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.185</version>
+		</dependency>
+
+		<!-- DataSource (HikariCP) -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.2.5</version>
+		</dependency>
+
+		<!-- JPA Provider (Hibernate) -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.8.Final</version>
 		</dependency>
 
 		<!-- Servlet -->
@@ -110,14 +137,21 @@
 			<artifactId>activemq-all</artifactId>
 			<version>${activemq.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.3-1102-jdbc41</version>
+		</dependency>
+
+
 		<!-- Log4j Dependency -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		
+
 		<!-- Gson Dependency -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
