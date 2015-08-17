@@ -4,12 +4,14 @@ angular
  
     authenticationService.$inject = ['$http', '$cookieStore', '$rootScope', '$timeout', 'userService'];
     function authenticationService($http, $cookieStore, $rootScope, $timeout, userService) {
-        var service = {};
- 
+        
+    	var service = {};
+                 
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
         service.GetCurrentUserName = GetCurrentUserName;
+        service.IsLoggedIn = IsLoggedIn;
  
         return service;
  
@@ -47,6 +49,19 @@ angular
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
+        }
+        
+        function IsLoggedIn() {
+        	var globals = $cookieStore.get("globals") || {};
+    		var currentUser = globals.currentUser;
+    		if( currentUser == undefined || currentUser == null)
+    		{
+    			return false;
+    		}
+    		else{
+    			return true;
+    		}
+        	
         }
         
         function GetCurrentUserName() {

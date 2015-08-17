@@ -11,7 +11,23 @@
 <!--        </div> -->
 <!--     </nav> -->
 
-    <div id="page-wrapper" style="padding-bottom: 500px;">  
+
+<aside class="right-side">                
+     <!-- Content Header (Page header) -->
+     <section class="content-header">
+         <h1>
+             Login
+             <small></small>
+         </h1>
+         <ol class="breadcrumb">
+             <li><a href="#"><i class="fa fa-dashboard"></i> Login</a></li>
+             <!-- <li class="active">Blank page</li> -->
+         </ol>
+     </section>
+
+     <!-- Main content -->
+     <section class="content">
+		    <div id="page-wrapper" style="padding-bottom: 500px;">  
         <div class="container-fluid">
             <div ng-show="loginCtrl.error" class="alert alert-danger">{{loginCtrl.error}}</div>
             <form name="form" role="form">
@@ -34,5 +50,11 @@
             </form>
         </div>
     </div>
+    
+	
+     </section><!-- /.content -->
+ </aside><!-- /.right-side -->
+                
+
 </div>
 

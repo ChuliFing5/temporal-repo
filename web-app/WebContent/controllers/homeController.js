@@ -5,10 +5,12 @@ angular.module('webApp').controller("homeController", ["$scope", '$http', '$loca
 		
 		self.username = authenticationService.GetCurrentUserName();
 		self.logout = logout
-		
+						
 		function logout(){
 			authenticationService.ClearCredentials();
+			$rootScope.loggedIn = false;
 	    	$location.path('#/login');
+	    	//$route.reload('#/login');
 		}
 	
 	

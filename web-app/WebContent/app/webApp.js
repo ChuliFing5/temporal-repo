@@ -11,6 +11,10 @@ app.config(['$routeProvider', '$locationProvider',
           {
              templateUrl: '/views/login.html'
           })
+          .when('/navbar', 
+          {
+             templateUrl: '/views/shared/navbar.html'
+          })
     	     .otherwise({redirectTo: '/'});
 	}]);
 
