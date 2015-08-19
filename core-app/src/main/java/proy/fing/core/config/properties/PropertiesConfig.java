@@ -1,4 +1,4 @@
-package proy.fing.core.context;
+package proy.fing.core.config.properties;
 
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.annotation.Bean;

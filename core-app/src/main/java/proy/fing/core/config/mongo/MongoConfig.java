@@ -1,4 +1,4 @@
-package proy.fing.core.context;
+package proy.fing.core.config.mongo;
 
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ import com.mongodb.ServerAddress;
 
 @Configuration
 @EnableMongoRepositories(basePackages= {"proy.fing.core.dao.mongo"})
-public class MongoRepositoryContext {
+public class MongoConfig {
 	
 	@Value("${mongodb.host}")
 	private String mongoHost;

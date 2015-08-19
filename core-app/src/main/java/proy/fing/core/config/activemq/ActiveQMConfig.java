@@ -1,4 +1,4 @@
-package proy.fing.core.context;
+package proy.fing.core.config.activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Value;

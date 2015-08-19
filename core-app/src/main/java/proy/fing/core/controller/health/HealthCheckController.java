@@ -1,4 +1,4 @@
-package proy.fing.core.controller;
+package proy.fing.core.controller.health;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,5 @@
 package proy.fing.core.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,11 +7,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import proy.fing.core.dao.db.AbstractEntity;
 import proy.fing.core.model.enums.UserType;
 
 @Entity
 @Table(name = "USER")
-public class User implements Serializable {
+public class User extends AbstractEntity<String> {
 
 	/**
 	 * 
@@ -102,6 +101,11 @@ public class User implements Serializable {
 	@Column(name = "ACTIVE", nullable = false)
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	@Override
+	public String getIdentifier() {
+		return this.userName;
 	}
 
 }
