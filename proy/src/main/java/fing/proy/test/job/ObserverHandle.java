@@ -19,6 +19,7 @@ public class ObserverHandle implements CoapHandler {
 
 		System.out.print("Observable Response: " + payloadString + ", Source 1: " + source1 + ", Source 2: " + source2 + ", Source3: " + source3 + "\n");
 
+		
 	}
 
 }

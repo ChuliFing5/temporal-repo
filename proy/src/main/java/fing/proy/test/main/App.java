@@ -3,8 +3,6 @@ package fing.proy.test.main;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import fing.proy.test.get.SimpleCoapClient;
-
 /**
  * Hello world!
  *
