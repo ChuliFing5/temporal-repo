@@ -20,6 +20,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<jackson.version>1.9.13</jackson.version>
 		<javax.servlet.version>3.1.0</javax.servlet.version>
+		<sqllite.version>3.7.2</sqllite.version>
 
 	</properties>
 
@@ -85,6 +86,12 @@
 			<artifactId>spring-jms</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 
 		<!-- Servlet -->
 		<dependency>
@@ -124,6 +131,12 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>${sqllite.version}</version>
 		</dependency>
 
 
