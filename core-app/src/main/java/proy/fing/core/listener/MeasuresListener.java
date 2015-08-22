@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 
 import proy.fing.core.dao.mongo.MeasureDAO;
-import proy.fing.core.dto.measures.MeasureDTO;
+import proy.fing.core.dto.MeasureDTO;
 import proy.fing.core.model.Measure;
 
 @Service

@@ -1,4 +1,4 @@
-package proy.fing.core.dto.measures;
+package proy.fing.core.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

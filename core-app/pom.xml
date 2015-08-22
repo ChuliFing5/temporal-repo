@@ -23,7 +23,7 @@
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<metrics.version>3.1.0</metrics.version>
 		<hibernate.version>4.3.6.FINAL</hibernate.version>
-		<orika.version>1.1.4</orika.version>
+		<orika.version>1.4.0</orika.version>
 
 	</properties>
 

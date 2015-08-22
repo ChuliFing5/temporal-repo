@@ -8,4 +8,5 @@ import proy.fing.core.model.User;
 @Repository
 public class UserDAO extends AbstractHibernateEntityDAO<User,String>{
 	
+	
 }

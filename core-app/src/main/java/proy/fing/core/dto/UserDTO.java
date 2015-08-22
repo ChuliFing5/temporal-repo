@@ -1,48 +1,16 @@
-package proy.fing.core.model;
+package proy.fing.core.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import proy.fing.core.dao.db.AbstractEntity;
 import proy.fing.core.model.enums.UserType;
 
-@Entity
-@Table(name = "users")
-public class User extends AbstractEntity<String> {
+public class UserDTO {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "user_name", nullable = false)
 	private String userName;
-
-	@Column(name = "email", nullable = false)
 	private String email;
-	
-	@Column(name = "firstname", nullable = false)
 	private String firstName;
-	
-	@Column(name = "lastname", nullable = false)
 	private String lastName;
-	
-	@Column(name = "mobile_number", nullable = false)
 	private String mobileNumber;
-	
-	@Column(name = "password", nullable = false)
 	private String password;
-	
-	@Column(name = "type", nullable = false)
-    @Enumerated(EnumType.STRING)
 	private UserType userType;
-	
-	@Column(name = "active", nullable = false)
 	private boolean active;
 
 	public String getUserName() {
@@ -107,11 +75,6 @@ public class User extends AbstractEntity<String> {
 
 	public void setActive(boolean active) {
 		this.active = active;
-	}
-
-	@Override
-	public String getIdentifier() {
-		return this.userName;
 	}
 
 }

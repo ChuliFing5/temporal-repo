@@ -65,7 +65,9 @@ public class DatabaseConfig {
 
     @Value("${hibernate.connection.isolation}")
     private String hibernateConnectionIsolation;
-
+    
+    @Value("${hibernate.default_schema}")
+    private String defaultSchema;
 
     // HIKARI VALUES
 
@@ -119,6 +121,8 @@ public class DatabaseConfig {
         hibernateProperties.setProperty("hibernate.generate_statistics", this.generateStatistics);
         hibernateProperties.setProperty("hibernate.connection.autocommit", this.hibernateConnectionAutocommit);
         hibernateProperties.setProperty("hibernate.connection.isolation", this.hibernateConnectionIsolation);
+        hibernateProperties.setProperty("hibernate.default_schema", this.defaultSchema);
+
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setPackagesToScan(packagesToScan);
