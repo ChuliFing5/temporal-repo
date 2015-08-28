@@ -6,96 +6,91 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.eclipse.jetty.util.resource.ResourceCollection;
+import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import proy.fing.daemon.context.WebContext;
+import proy.fing.daemon.service.container.BaseIpContainer;
 
 public class DaemonWebServer {
 
+	private static final String DISPLAY_NAME = "daemon-app";
+	private static final String CONTEXT_NAME = "/";
+	private static final int DEFAULT_PORT = 8082;
 
-    private static final String DISPLAY_NAME = "daemon-app";
-    private static final String CONTEXT_NAME = "/";
-    private static final int DEFAULT_PORT = 8082;
+	private final Server server;
 
-    private enum Enviroment {
-        rc, beta, prod, desa;
-    }
+	public DaemonWebServer(String[] args) {
+		this.server = this.createNewServer(args);
+	}
 
-    private final Server server;
+	public static void main(String[] args) throws Exception {
+		DaemonWebServer server = new DaemonWebServer(args);
 
-    public DaemonWebServer(String[] args) {
-        this.server = this.createNewServer(args);
-    }
+		BaseIpContainer base = BaseIpContainer.getInstance();
+		base.serBaseIp(args[0]);
 
-    public static void main(String[] args) throws Exception {
-    	DaemonWebServer server = new DaemonWebServer(args);
-        server.run();
-    }
+		server.run();
+	}
 
-    private Server createNewServer(String[] args) {
-        int port = args.length > 0 ? Integer.parseInt(args[0]) : DEFAULT_PORT;
+	private Server createNewServer(String[] args) {
+		int port = DEFAULT_PORT;
 
-        Enviroment env = args.length > 0 ? Enviroment.valueOf(args[1]) : Enviroment.desa;
+		WebAppContext webHandler = this.buildWebAppContext(args);
 
-        WebAppContext webHandler = this.buildWebAppContext(args, env);
+		HandlerList handlers = new HandlerList();
+		handlers.addHandler(webHandler);
 
-        HandlerList handlers = new HandlerList();
-        handlers.addHandler(webHandler);
+		Server server = new Server(port);
+		server.setHandler(handlers);
+		server.setStopAtShutdown(true);
 
-        Server server = new Server(port);
-        server.setHandler(handlers);
-        server.setStopAtShutdown(true);
+		TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
 
-        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+		return server;
+	}
 
-        return server;
-    }
+	private void run() throws Exception {
+		this.server.start();
+		this.server.join();
+	}
 
-    private void run() throws Exception {
-        this.server.start();
-        this.server.join();
-    }
+	private WebAppContext buildWebAppContext(String[] args) {
 
-    private WebAppContext buildWebAppContext(String[] args, Enviroment env) {
+		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
+		applicationContext.register(WebContext.class);
 
-        AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
-        applicationContext.register(WebContext.class);
+		WebAppContext handler = new WebAppContext();
+		handler.setContextPath(CONTEXT_NAME);
+		handler.setDisplayName(DISPLAY_NAME);
 
-        WebAppContext handler = new WebAppContext();
-        handler.setContextPath(CONTEXT_NAME);
-        handler.setDisplayName(DISPLAY_NAME);
+		handler.setInitParameter("useFileMappedBuffer", "false");
+		handler.setBaseResource(Resource.newClassPathResource("/config"));
+		handler.setResourceAlias("/WEB-INF/classes/", "/classes/");
 
-        String[] resources = null;
-        resources = new String[] {"./src/main/resources/config" };
+		this.appendListeners(applicationContext, handler);
+		this.appendSpringDispatcherServlet(applicationContext, handler);
 
-          handler.setInitParameter("useFileMappedBuffer", "false");
-          handler.setBaseResource(new ResourceCollection(resources));
-          handler.setResourceAlias("/WEB-INF/classes/", "/classes/");
+		applicationContext.close();
+		return handler;
+	}
 
-        this.appendListeners(applicationContext, handler);
-        this.appendSpringDispatcherServlet(applicationContext, handler);
+	private void appendListeners(AnnotationConfigWebApplicationContext applicationContext,
+			ServletContextHandler handler) {
+		// Para que funcione Spring con su contexto
+		handler.addEventListener(new ContextLoaderListener(applicationContext));
+	}
 
-        applicationContext.close();
-        return handler;
-    }
+	private void appendSpringDispatcherServlet(AnnotationConfigWebApplicationContext applicationContext,
+			ServletContextHandler handler) {
+		DispatcherServlet dispatcherServlet = new DispatcherServlet(applicationContext);
+		ServletHolder servletHolder = new ServletHolder(dispatcherServlet);
+		servletHolder.setName("spring");
+		servletHolder.setInitOrder(1);
+		handler.addServlet(servletHolder, "/daemon-app/*");
+	}
 
-    private void appendListeners(AnnotationConfigWebApplicationContext applicationContext, ServletContextHandler handler) {
-        // Para que funcione Spring con su contexto
-        handler.addEventListener(new ContextLoaderListener(applicationContext));
-    }
-
-    private void appendSpringDispatcherServlet(AnnotationConfigWebApplicationContext applicationContext,
-        ServletContextHandler handler) {
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(applicationContext);
-        ServletHolder servletHolder = new ServletHolder(dispatcherServlet);
-        servletHolder.setName("spring");
-        servletHolder.setInitOrder(1);
-        handler.addServlet(servletHolder, "/daemon-app/*");
-    }
-
-    
 }

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
 
-import proy.fing.daemon.sender.MessageSender;
+import proy.fing.daemon.service.sender.MessageSender;
 
 @ComponentScan(basePackages = {"proy.fing.web"})
 @Configuration

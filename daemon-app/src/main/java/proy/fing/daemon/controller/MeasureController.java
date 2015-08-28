@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import proy.fing.daemon.dao.MeasureDAO;
 import proy.fing.daemon.dto.measures.MeasureDTO;
 import proy.fing.daemon.model.Measure;
-import proy.fing.daemon.sender.MessageSender;
+import proy.fing.daemon.service.sender.MessageSender;
 
 @RestController
 @RequestMapping("/measure")
