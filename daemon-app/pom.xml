@@ -172,6 +172,12 @@
 		</dependency>
 
 
+		<!-- Californium COAP Client -->
+		<dependency>
+			<groupId>org.eclipse.californium</groupId>
+			<artifactId>californium-core</artifactId>
+			<version>1.0.0-M3</version>
+		</dependency>
 
 	</dependencies>
 

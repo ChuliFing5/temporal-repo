@@ -10,7 +10,7 @@ public class NetworkInitializerBean {
 	@PostConstruct
 	public void initializeNetwork(){
 		
-		// 1 - le pego al servidor para saber si ya tiene mi demonio anunciado
+		// 1 - le pego al servidor (mandando ip demonio y ip base) para saber si ya tiene mi demonio anunciado
 		//     el servidor me responde ACCEPTED, ALREADY_ANNOUNCED
 		
 		// 2 - si ya estaba anunciado, no hago nada

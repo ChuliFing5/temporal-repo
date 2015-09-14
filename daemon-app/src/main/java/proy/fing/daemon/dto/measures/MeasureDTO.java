@@ -12,6 +12,7 @@ public class MeasureDTO implements Serializable{
 	private BigDecimal value;
 	private String networkName;
 	private int networkMote;
+	private String ipMote;
 
 	public BigDecimal getValue() {
 		return value;
@@ -37,4 +38,13 @@ public class MeasureDTO implements Serializable{
 		this.networkMote = networkMote;
 	}
 
+	public String getIpMote() {
+		return ipMote;
+	}
+
+	public void setIpMote(String ipMote) {
+		this.ipMote = ipMote;
+	}
+
+	
 }
