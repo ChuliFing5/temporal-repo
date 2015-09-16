@@ -6,3 +6,4 @@ CREATE TABLE measure(
 	value decimal(10,5) NOT NULL,
 	retries integer NOT NULL
 );
+

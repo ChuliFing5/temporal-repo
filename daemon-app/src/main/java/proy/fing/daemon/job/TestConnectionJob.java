@@ -15,7 +15,7 @@ public class TestConnectionJob {
 	@Scheduled(cron="${daemon.config.job.cron.testConnection}")
 	public void testConnection(){
 		//Se manda lo buffereado
-		//Si hay conexion se manda, sino no
+		//Si hay conexion se mandan las medidas buffereadas
 		bufferManager.sendBufferedMeasure();
 	}
 }
