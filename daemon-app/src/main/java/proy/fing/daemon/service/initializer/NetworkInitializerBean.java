@@ -26,7 +26,7 @@ public class NetworkInitializerBean {
 		// 2 - si ya estaba anunciado, no hago nada
         
         
-		// 3 - si no estaba anunciado, mando la info de mis hermanos de red, para que este los conozca (se hace solo con el job)
+		// 3 - si no estaba anunciado, mando la info de mis hermanos de red, para que este los conozca (o se hace solo con el job?)
         if(state == "ANOUNCEDOK"){
 	        StateContainer stateContainer = StateContainer.getInstance();
 			stateContainer.setState(state);
