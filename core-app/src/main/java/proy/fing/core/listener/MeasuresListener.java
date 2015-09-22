@@ -27,6 +27,7 @@ public class MeasuresListener {
 		measure.setNetworkName(measureDTO.getNetworkName());
 		measure.setValue(measureDTO.getValue());
 		measure.generateId();
+			
 		
 		this.measureDAO.save(measure);
 
