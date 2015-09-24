@@ -13,7 +13,7 @@ public class BaseIpContainer {
 		return instance;
 	}
 	
-	public void serBaseIp(String baseIp){
+	public void setBaseIp(String baseIp){
 		this.networkBaseIp = baseIp;
 	}
 	

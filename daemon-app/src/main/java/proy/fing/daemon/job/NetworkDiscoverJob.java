@@ -41,7 +41,8 @@ public class NetworkDiscoverJob {
 	private MeasureDAO measureDAO;
 	
 	
-	@Scheduled(cron="${daemon.config.job.cron.networkDiscover}")
+//	@Scheduled(cron="0 0/1 * * * ?") fixedRate=30000
+	@Scheduled(fixedRate=30000)
 	public void discoverNetwork(){
 		
 		StateContainer stateContainer = StateContainer.getInstance();
@@ -115,6 +116,8 @@ public class NetworkDiscoverJob {
 										                    newMeasure.setIpMote(ipMoteActual);
 										                    newMeasure.setNetworkName(NETWORKNAME);
 										                    newMeasure.setValue(measureValue);
+										                    
+										                    //TODO: si es alarma mandar a servicio
 										                    
 										                    try{
 									                   			

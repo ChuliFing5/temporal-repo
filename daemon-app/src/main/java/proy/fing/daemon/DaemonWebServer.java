@@ -31,7 +31,7 @@ public class DaemonWebServer {
 		DaemonWebServer server = new DaemonWebServer(args);
 
 		BaseIpContainer base = BaseIpContainer.getInstance();
-		base.serBaseIp(args[0]);
+		base.setBaseIp(args[0]);
 
 		server.run();
 	}

@@ -12,7 +12,7 @@ public class TestConnectionJob {
 	@Autowired
 	BufferManager bufferManager;
 	
-	@Scheduled(cron="${daemon.config.job.cron.testConnection}")
+//	@Scheduled(cron="${daemon.config.job.cron.testConnection}")
 	public void testConnection(){
 		//Se manda lo buffereado
 		//Si hay conexion se mandan las medidas buffereadas

@@ -33,6 +33,7 @@ public class BufferManager {
 				break; //sigue con el for
 			}
 			
+			//Se borra la medida
 			measureDAO.delete(measure);
 		}		
 	}
